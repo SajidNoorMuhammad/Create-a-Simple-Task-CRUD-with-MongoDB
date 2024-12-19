@@ -4,6 +4,7 @@ import userRoutes from './routers/users.js'
 import coursesRoutes from './routers/courses.js'
 import 'dotenv/config'
 import mongoose from "mongoose";
+import taskRoutes from './routers/tasks.js'
 
 const tasks = [
     {
@@ -38,6 +39,7 @@ app.use(express.json())
 app.use(middleware)
 app.use('/user', userRoutes)
 app.use('/courses', coursesRoutes)
+app.use('/task', taskRoutes)
 
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log("Mongo DB Connected"))
